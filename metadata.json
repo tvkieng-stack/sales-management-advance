@@ -1,0 +1,10 @@
+{
+  "name": "Sales Management System",
+  "description": "Comprehensive sales management and POS system with multi-tab checkout, inventory tracking, supplier and customer CRM, promotions, financial reporting, and barcode scanner support.",
+  "requestFramePermissions": [
+    "camera"
+  ],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}

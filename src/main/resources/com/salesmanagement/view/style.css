@@ -1,0 +1,321 @@
+/* ============ BẢNG MÀU DARK THEME ============
+   Nguyên tắc: mọi nền đều ĐỤC (không transparent) để tránh chữ chồng lên nhau
+   khi ListView/ComboBox popup mở ra đè lên nội dung phía sau.
+============================================= */
+
+.root {
+    -fx-font-family: "Segoe UI", Arial, sans-serif;
+    -fx-background-color: #0f172a;
+    /* Bảng màu: nền chính #0f172a, nền panel #1e293b, nền input #334155, viền #475569, chữ chính #e2e8f0, chữ phụ #94a3b8, accent #4361ee */
+}
+
+/* ============ NÚT BẤM ============ */
+.button {
+    -fx-background-color: #334155;
+    -fx-text-fill: #e2e8f0;
+    -fx-background-radius: 6;
+    -fx-padding: 8 18 8 18;
+    -fx-font-size: 13px;
+    -fx-cursor: hand;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.4), 3, 0, 0, 1);
+}
+.button:hover {
+    -fx-background-color: #475569;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.5), 5, 0, 0, 2);
+}
+.button:pressed {
+    -fx-background-color: #1e293b;
+    -fx-effect: none;
+    -fx-translate-y: 1;
+}
+.button:default {
+    -fx-background-color: #4361ee;
+}
+.button:default:hover {
+    -fx-background-color: #5a75f0;
+}
+
+.btn-primary { -fx-background-color: #4361ee; -fx-text-fill: white; }
+.btn-primary:hover { -fx-background-color: #5a75f0; }
+.btn-success { -fx-background-color: #16a34a; -fx-text-fill: white; }
+.btn-success:hover { -fx-background-color: #22c55e; }
+.btn-danger { -fx-background-color: #dc2626; -fx-text-fill: white; }
+.btn-danger:hover { -fx-background-color: #ef4444; }
+.btn-secondary { -fx-background-color: #475569; -fx-text-fill: #e2e8f0; }
+.btn-secondary:hover { -fx-background-color: #64748b; }
+
+/* ============ Ô NHẬP LIỆU ============ */
+.text-field, .password-field, .combo-box, .date-picker {
+    -fx-background-color: #1e293b;
+    -fx-text-fill: #e2e8f0;
+    -fx-background-radius: 6;
+    -fx-border-radius: 6;
+    -fx-border-color: #475569;
+    -fx-border-width: 1;
+    -fx-padding: 6 10 6 10;
+    -fx-font-size: 13px;
+    -fx-prompt-text-fill: #64748b;
+}
+.text-field:focused, .password-field:focused, .combo-box:focused, .date-picker:focused {
+    -fx-border-color: #4361ee;
+    -fx-border-width: 1.5;
+    -fx-effect: dropshadow(gaussian, rgba(67,97,238,0.35), 4, 0, 0, 0);
+}
+.date-picker .arrow-button, .combo-box .arrow-button {
+    -fx-background-color: transparent;
+}
+.date-picker .arrow, .combo-box .arrow {
+    -fx-background-color: #94a3b8;
+}
+/* Ô soạn thảo bên trong DatePicker/ComboBox editable */
+.text-input {
+    -fx-text-fill: #e2e8f0;
+    -fx-background-color: transparent;
+}
+
+/* ============ POPUP CỦA COMBOBOX / DATEPICKER — nền đục, KHÔNG transparent ============ */
+.combo-box-popup .list-view {
+    -fx-background-color: #1e293b;
+    -fx-border-color: #475569;
+    -fx-border-width: 1;
+}
+.combo-box-popup .list-cell {
+    -fx-background-color: #1e293b;
+    -fx-text-fill: #e2e8f0;
+    -fx-padding: 8 12 8 12;
+}
+.combo-box-popup .list-cell:filled:hover {
+    -fx-background-color: #334155;
+}
+.combo-box-popup .list-cell:filled:selected {
+    -fx-background-color: #4361ee;
+    -fx-text-fill: white;
+}
+.date-picker-popup {
+    -fx-background-color: #1e293b;
+}
+.date-picker-popup .month-year-pane {
+    -fx-background-color: #334155;
+}
+.date-picker-popup .day-cell {
+    -fx-background-color: #1e293b;
+    -fx-text-fill: #e2e8f0;
+}
+.date-picker-popup .day-cell:hover {
+    -fx-background-color: #334155;
+}
+.date-picker-popup > * > .selected {
+    -fx-background-color: #4361ee;
+    -fx-text-fill: white;
+}
+.date-picker-popup .spinner .button {
+    -fx-background-color: #334155;
+}
+
+/* ============ LISTVIEW mặc định (POS product list...) — nền đục ============ */
+.list-view {
+    -fx-background-color: #1e293b;
+    -fx-border-color: #475569;
+    -fx-border-width: 1;
+    -fx-background-radius: 6;
+    -fx-border-radius: 6;
+}
+.list-cell {
+    -fx-background-color: #1e293b;
+    -fx-text-fill: #e2e8f0;
+    -fx-padding: 10 12 10 12;
+    -fx-font-size: 13.5px;
+}
+.list-cell:filled:hover {
+    -fx-background-color: #334155;
+}
+.list-cell:filled:selected {
+    -fx-background-color: #4361ee;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+}
+
+/* ============ SIDEBAR MENU RIÊNG (dashboard.fxml) — tối hơn để phân biệt panel chính ============ */
+.sidebar {
+    -fx-background-color: #0b1220;
+}
+.sidebar .list-view {
+    -fx-background-color: #0b1220;
+    -fx-border-color: transparent;
+}
+.sidebar .label {
+    -fx-text-fill: #64748b;
+    -fx-font-weight: bold;
+    -fx-letter-spacing: 1px;
+}
+.sidebar .list-cell {
+    -fx-background-color: #0b1220;
+    -fx-text-fill: #cbd5e1;
+}
+.sidebar .list-cell:filled:hover {
+    -fx-background-color: #1e293b;
+    -fx-text-fill: white;
+}
+.sidebar .list-cell:filled:selected {
+    -fx-background-color: #4361ee;
+    -fx-text-fill: white;
+}
+
+/* ============ BẢNG DỮ LIỆU (TableView) ============ */
+.table-view {
+    -fx-background-color: #1e293b;
+    -fx-background-radius: 8;
+    -fx-border-color: #334155;
+    -fx-border-radius: 8;
+    -fx-padding: 2;
+}
+.table-view .column-header-background {
+    -fx-background-color: #0f172a;
+    -fx-background-radius: 8 8 0 0;
+}
+.table-view .column-header, .table-view .filler {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent transparent #334155 transparent;
+    -fx-border-width: 0 0 1 0;
+}
+.table-view .column-header .label {
+    -fx-text-fill: #94a3b8;
+    -fx-font-weight: bold;
+    -fx-font-size: 12.5px;
+}
+.table-row-cell {
+    -fx-background-color: #1e293b;
+    -fx-text-fill: #e2e8f0;
+    -fx-border-color: transparent transparent #263449 transparent;
+}
+.table-row-cell:odd {
+    -fx-background-color: #17233a;
+}
+.table-row-cell:selected {
+    -fx-background-color: #2d3f7a;
+    -fx-text-fill: white;
+}
+.table-row-cell:hover {
+    -fx-background-color: #263449;
+}
+.table-view .text {
+    -fx-fill: #e2e8f0;
+}
+
+/* ============ TOP BAR (dashboard.fxml) ============ */
+.topbar {
+    -fx-background-color: #1e293b;
+    -fx-border-color: transparent transparent #334155 transparent;
+    -fx-border-width: 0 0 1 0;
+}
+.topbar .label {
+    -fx-text-fill: #e2e8f0;
+}
+
+/* ============ LABEL CHUNG ============ */
+.label {
+    -fx-text-fill: #e2e8f0;
+}
+.screen-title {
+    -fx-font-size: 19px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #f1f5f9;
+}
+.label-error {
+    -fx-text-fill: #f87171;
+    -fx-font-weight: bold;
+}
+.label-success {
+    -fx-text-fill: #4ade80;
+    -fx-font-weight: bold;
+}
+
+/* ============ CARD TỔNG QUAN DASHBOARD (giữ màu nổi bật, không đổi) ============ */
+.card {
+    -fx-background-radius: 10;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.4), 6, 0, 0, 2);
+}
+
+/* ============ ALERT / DIALOG (Confirm khi Restore...) ============ */
+.dialog-pane {
+    -fx-background-color: #1e293b;
+}
+.dialog-pane .content.label {
+    -fx-text-fill: #e2e8f0;
+}
+.dialog-pane .header-panel {
+    -fx-background-color: #0f172a;
+}
+.dialog-pane .header-panel .label {
+    -fx-text-fill: #f1f5f9;
+}
+
+/* ============ SCROLLBAR ============ */
+.scroll-bar {
+    -fx-background-color: #1e293b;
+}
+.scroll-bar .thumb {
+    -fx-background-color: #475569;
+    -fx-background-radius: 6;
+}
+.scroll-bar .thumb:hover {
+    -fx-background-color: #64748b;
+}
+
+/* ============ CHART (report.fxml - BarChart) ============ */
+.chart {
+    -fx-background-color: #1e293b;
+}
+.chart-plot-background {
+    -fx-background-color: #17233a;
+}
+.axis {
+    -fx-tick-label-fill: #94a3b8;
+}
+.axis-label {
+    -fx-text-fill: #94a3b8;
+}
+.chart-legend {
+    -fx-background-color: #1e293b;
+    -fx-text-fill: #e2e8f0;
+}
+.default-color0.chart-bar {
+    -fx-bar-fill: #4361ee;
+}
+
+/* ============ TABLECELL button (nút Khóa/Mở khóa trong employee.fxml) ============ */
+.table-cell {
+    -fx-text-fill: #e2e8f0;
+}
+/* ============ TABPANE (multi-tab hóa đơn POS) — nền đục theo dark theme ============ */
+.tab-pane .tab-header-area .tab-header-background {
+    -fx-background-color: #0f172a;
+}
+.tab-pane .tab {
+    -fx-background-color: #1e293b;
+    -fx-background-radius: 6 6 0 0;
+    -fx-border-color: transparent;
+}
+.tab-pane .tab:selected {
+    -fx-background-color: #4361ee;
+}
+.tab-pane .tab .tab-label {
+    -fx-text-fill: #94a3b8;
+    -fx-font-size: 13px;
+}
+.tab-pane .tab:selected .tab-label {
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+}
+.tab-pane .tab-content-area {
+    -fx-background-color: #0f172a;
+}
+.tab-pane .tab-close-button {
+    -fx-background-color: #94a3b8;
+}
+.tab-pane .tab:selected .tab-close-button {
+    -fx-background-color: white;
+}
+.tab-pane .headers-region {
+    -fx-background-color: #0f172a;
+}

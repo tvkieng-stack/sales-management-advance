@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+
+<BorderPane xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.salesmanagement.controller.PosTabsController">
+    <top>
+        <HBox alignment="CENTER_LEFT" spacing="10">
+            <padding>
+                <Insets top="8" right="10" bottom="8" left="10"/>
+            </padding>
+            <Button text="+ Đơn mới (Ctrl+T)" onAction="#handleAddTab" styleClass="btn-success"/>
+        </HBox>
+    </top>
+
+    <center>
+        <TabPane fx:id="orderTabPane" tabClosingPolicy="ALL_TABS"/>
+    </center>
+</BorderPane>

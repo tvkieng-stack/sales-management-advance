@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.control.PasswordField?>
+
+<VBox spacing="15" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.salesmanagement.controller.EmployeeController">
+    <padding>
+        <Insets top="15" right="15" bottom="15" left="15"/>
+    </padding>
+
+    <Label text="QUẢN LÝ NHÂN VIÊN" style="-fx-font-size: 18px; -fx-font-weight: bold;"/>
+
+    <GridPane hgap="8" vgap="8">
+        <TextField fx:id="empNameField" promptText="Họ tên" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+        <TextField fx:id="empPhoneField" promptText="Điện thoại" GridPane.rowIndex="0" GridPane.columnIndex="1"/>
+        <TextField fx:id="empEmailField" promptText="Email" GridPane.rowIndex="0" GridPane.columnIndex="2"/>
+        <TextField fx:id="empPositionField" promptText="Chức vụ" GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+        <TextField fx:id="empSalaryField" promptText="Lương" GridPane.rowIndex="1" GridPane.columnIndex="1"/>
+        <TextField fx:id="empAddressField" promptText="Địa chỉ" GridPane.rowIndex="1" GridPane.columnIndex="2"/>
+    </GridPane>
+    <HBox spacing="8">
+        <Button text="Thêm nhân viên" onAction="#handleAddEmployee"/>
+        <Button text="Cập nhật" onAction="#handleUpdateEmployee"/>
+        <Button text="Vô hiệu hóa" onAction="#handleDeactivateEmployee"/>
+    </HBox>
+
+    <TableView fx:id="employeeTable" prefHeight="180">
+        <columns>
+            <TableColumn fx:id="empIdColumn" text="ID" prefWidth="40"/>
+            <TableColumn fx:id="empNameColumn" text="Họ tên" prefWidth="150"/>
+            <TableColumn fx:id="empPhoneColumn" text="Điện thoại" prefWidth="100"/>
+            <TableColumn fx:id="empPositionColumn" text="Chức vụ" prefWidth="120"/>
+            <TableColumn fx:id="empStatusColumn" text="Trạng thái" prefWidth="90"/>
+        </columns>
+    </TableView>
+
+    <Label text="TẠO TÀI KHOẢN ĐĂNG NHẬP" style="-fx-font-size: 16px; -fx-font-weight: bold;"/>
+
+    <HBox spacing="8" alignment="CENTER_LEFT">
+        <Label text="Nhân viên:"/>
+        <ComboBox fx:id="employeeCombo" prefWidth="180"/>
+        <TextField fx:id="usernameField" promptText="Username" prefWidth="130"/>
+        <PasswordField fx:id="passwordField" promptText="Mật khẩu" prefWidth="130"/>
+        <ComboBox fx:id="roleCombo" prefWidth="110"/>
+        <Button text="Tạo tài khoản" onAction="#handleCreateAccount"/>
+    </HBox>
+
+    <TableView fx:id="userTable" prefHeight="180">
+        <columnResizePolicy>
+            <TableView fx:constant="CONSTRAINED_RESIZE_POLICY"/>
+        </columnResizePolicy>
+        <columns>
+            <TableColumn fx:id="userIdColumn" text="ID" prefWidth="40"/>
+            <TableColumn fx:id="userUsernameColumn" text="Username" prefWidth="120"/>
+            <TableColumn fx:id="userRoleColumn" text="Vai trò" prefWidth="90"/>
+            <TableColumn fx:id="userEmployeeColumn" text="Nhân viên" prefWidth="140"/>
+            <TableColumn fx:id="userStatusColumn" text="Trạng thái" prefWidth="90"/>
+            <TableColumn fx:id="userActionColumn" text="Thao tác" prefWidth="120" minWidth="100"/>
+        </columns>
+    </TableView>
+
+    <Label text="ĐỔI MẬT KHẨU CỦA TÔI" style="-fx-font-size: 16px; -fx-font-weight: bold;"/>
+
+    <HBox spacing="8" alignment="CENTER_LEFT">
+        <Label text="Mật khẩu hiện tại:"/>
+        <PasswordField fx:id="oldPasswordField" prefWidth="130"/>
+        <Label text="Mật khẩu mới:"/>
+        <PasswordField fx:id="newPasswordField" prefWidth="130"/>
+        <Label text="Xác nhận:"/>
+        <PasswordField fx:id="confirmPasswordField" prefWidth="130"/>
+        <Button text="Đổi mật khẩu" onAction="#handleChangePassword"/>
+    </HBox>
+
+    <Label fx:id="messageLabel" style="-fx-text-fill: red;"/>
+</VBox>

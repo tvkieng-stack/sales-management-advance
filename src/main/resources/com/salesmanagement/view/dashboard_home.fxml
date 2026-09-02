@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox spacing="15" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.salesmanagement.controller.DashboardHomeController">
+    <padding>
+        <Insets top="15" right="15" bottom="15" left="15"/>
+    </padding>
+
+    <Label text="TỔNG QUAN" style="-fx-font-size: 18px; -fx-font-weight: bold;"/>
+
+    <HBox spacing="15">
+        <VBox style="-fx-background-color: #3498db; -fx-padding: 15; -fx-background-radius: 8;" prefWidth="200">
+            <Label text="Doanh thu hôm nay" style="-fx-text-fill: white;"/>
+            <Label fx:id="todayRevenueLabel" text="0" style="-fx-text-fill: white; -fx-font-size: 22px; -fx-font-weight: bold;"/>
+        </VBox>
+        <VBox style="-fx-background-color: #2ecc71; -fx-padding: 15; -fx-background-radius: 8;" prefWidth="200">
+            <Label text="Đơn hàng hôm nay" style="-fx-text-fill: white;"/>
+            <Label fx:id="todayOrdersLabel" text="0" style="-fx-text-fill: white; -fx-font-size: 22px; -fx-font-weight: bold;"/>
+        </VBox>
+        <VBox style="-fx-background-color: #e67e22; -fx-padding: 15; -fx-background-radius: 8;" prefWidth="200">
+            <Label text="Lợi nhuận hôm nay" style="-fx-text-fill: white;"/>
+            <Label fx:id="todayProfitLabel" text="0" style="-fx-text-fill: white; -fx-font-size: 22px; -fx-font-weight: bold;"/>
+        </VBox>
+    </HBox>
+
+    <HBox spacing="15">
+        <VBox spacing="8" prefWidth="380">
+            <Label text="Sản phẩm bán chạy (30 ngày)" style="-fx-font-weight: bold;"/>
+            <ListView fx:id="bestSellingList" prefHeight="250"/>
+        </VBox>
+        <VBox spacing="8" prefWidth="380">
+            <Label text="Sản phẩm sắp hết hàng" style="-fx-font-weight: bold; -fx-text-fill: #c0392b;"/>
+            <ListView fx:id="lowStockList" prefHeight="250"/>
+        </VBox>
+    </HBox>
+</VBox>
